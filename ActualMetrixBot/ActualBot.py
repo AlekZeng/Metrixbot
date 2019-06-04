@@ -1,5 +1,4 @@
 import discord
-import youtube_dl
 from discord.ext import commands
 
 #id = 579081919526993947
