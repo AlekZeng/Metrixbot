@@ -14,7 +14,6 @@ token = read_token()
 
 client = commands.Bot(command_prefix='&')
 
-players = {}
 
 @client.event
 async def on_ready():
@@ -52,36 +51,7 @@ async def on_message(message):
             await message.add_reaction(emoji='👎')
             await message.add_reaction(emoji='🤷')
             return
-    '''
-    if str(message.author) not in botName:
-        if str(message.channel) == "raffle":
-
-            raw = list(range(1, 101))
-
-            if message.author not in rafflelist:
-                for num in raw:
-                    print(num)
-                    if str(num) in message.content:
-                        if str(message.content) not in rafflelist:
-                            f = open(f"raffle.txt", "a+")
-                            f.write(f"{message.author}-{message.content}\n")
-                            f.close()
-                            await message.channel.send(
-                                f"{message.author.mention} using #{message.content} has been added to the raffle!")
-                            return
-
-                        elif str(message.content) in rafflelist:
-                            await message.channel.send(f"{message.author.mention}, this number has already been taken!")
-                            return
-
-                    elif f" {message.content}" not in raw:
-                        await message.channel.send(f"{message.author.mention}, please enter a number between 1 and 100!")
-                        return
-
-            elif message.author in rafflelist:
-                await message.channel.send(f"{message.author.mention}, you have already entered the raffle!")
-'''
-
+   
     await client.process_commands(message)
 
 
